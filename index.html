@@ -1,70 +1,52 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angel Molpeceres Mingo - Portfolio</title>
-    
-    <!-- Link your main CSS file -->
-    <link rel="stylesheet" href="style.css"> 
-    
-    <!-- Optional: Add icon library (e.g., Font Awesome) - Useful for sidebar icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
-    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="portfolio-container">
-        
-        <!-- ==== STATIC SIDEBAR (NAME CARD) ==== -->
-        <aside id="sidebar">
-            <div class="sidebar-content">
-                
-                <img src="assets/FotoYoRepsol.jpg" alt="Foto de Angel Molpeceres Mingo" class="profile-pic">
-                
+    <div class="floating-container">
+        <!-- Profile Card (Always Visible) -->
+        <div class="profile-card">
+            <div class="profile-content">
+                <img src="assets/tu_foto.jpg" alt="Angel Molpeceres Mingo" class="profile-pic">
                 <h1>Angel Molpeceres Mingo</h1>
-                <p class="subtitle">Data Scientist | Big Data & Business Analyst</p> 
-                
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:angelmolpeceresmingo@gmail.com">angelmolpeceresmingo@gmail.com</a></p>
-                    <p><i class="fas fa-phone"></i> +34 609154460</p>
-                    <!-- Add Location if desired -->
-                    <!-- <p><i class="fas fa-map-marker-alt"></i> Madrid, Spain</p> -->
-                </div>
-                
+                <p class="subtitle">Data Scientist | Big Data Analyst</p>
                 <div class="social-links">
-                    <a href="https://github.com/AngelMolpeceresMingo" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                    <!-- Add LinkedIn and other links as needed -->
-                    <!-- <a href="[YOUR_LINKEDIN_URL]" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a> -->
-                    <!-- <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a> -->
+                    <a href="https://github.com/AngelMolpeceresMingo" target="_blank"><i class="fab fa-github"></i></a>
+                    <!-- Add LinkedIn if you have it -->
+                    <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
                 </div>
             </div>
-        </aside>
+        </div>
 
-        <!-- ==== MAIN CONTENT AREA ==== -->
-        <main id="main-content">
-            
-            <!-- ==== NAVIGATION MENU ==== -->
-            <nav id="main-nav">
-                <button class="nav-button active" data-target="#about-content">About</button>
-                <button class="nav-button" data-target="#experience-content">Experience</button>
-                <button class="nav-button" data-target="#projects-content">Projects</button>
-                <button class="nav-button" data-target="#education-content">Education</button>
-                <button class="nav-button" data-target="#skills-content">Skills</button>
-                <button class="nav-button" data-target="#contact-content">Contact</button>
-            </nav>
+        <!-- Navigation -->
+        <nav id="main-nav">
+            <button class="nav-button active" data-target="#about-content">About</button>
+            <button class="nav-button" data-target="#experience-content">Experience</button>
+            <button class="nav-button" data-target="#projects-content">Projects</button>
+            <button class="nav-button" data-target="#education-content">Education</button>
+            <button class="nav-button" data-target="#skills-content">Skills</button>
+            <button class="nav-button" data-target="#contact-content">Contact</button>
+        </nav>
 
-            <!-- ==== CONTENT SECTIONS (Only one visible at a time) ==== -->
-            <div class="content-section active" id="about-content">
+        <!-- Content Cards (Only one visible at a time) -->
+        <div class="content-area">
+            <!-- About Me Card -->
+            <div class="content-card active" id="about-content">
                 <h2>About Me</h2>
-                <ul>
+                <ul class="about-list">
                     <li>Graduate in Applied Statistics with a strong foundation in Data Science and Programming.</li>
                     <li>Currently pursuing a Master's in Big Data Analytics.</li>
                     <li>Eager to develop my career in the Data and AI field, specifically in data science and analytics.</li>
                     <li>Seeking opportunities to apply my skills in challenging data environments, learning from the best and contributing to innovative technology development.</li>
-                    <li>Strong teamwork and leadership skills. Great willingness to receive feedback and a perfectionist spirit. Ability to adapt and thrive in new environments.</li>
+                    <li>Strong teamwork and leadership skills with great willingness to receive feedback.</li>
                 </ul>
-                <div class="about-extras">
-                    <div>
+                <div class="card-grid">
+                    <div class="mini-card">
                         <h3>Languages</h3>
                         <ul>
                             <li>Spanish (Native)</li>
@@ -72,126 +54,154 @@
                             <li>French (B2 Delf)</li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="mini-card">
                         <h3>Achievements</h3>
                         <ul>
-                            <li>ASEPELT/EUROVAL 2024 International Award for the Use of Advanced Quantitative Techniques in Data Analysis in Applied Economics.</li>
+                            <li>ASEPELT/EUROVAL 2024 International Award for Advanced Quantitative Techniques in Data Analysis.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="content-section" id="experience-content">
+            <!-- Experience Card -->
+            <div class="content-card" id="experience-content">
                 <h2>Professional Experience</h2>
-                 <div class="job">
-                    <h3>Intern in Trading Analytics - Repsol</h3>
-                    <p><em>Madrid, Spain | Aug 2024 - Present</em></p> 
-                    <ul>
-                        <li>Developed Power BI dashboards for visualizing subscription expenses...</li>
-                        <li>Analyzed data in ISCC sustainability...</li>
-                        <li>Implemented Python scripts for automated data extraction...</li>
-                        <li>Maintained applications for representing quotation data.</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <h3>Internship - National Institute of Statistics (INE)</h3>
-                     <p><em>Madrid, Spain</em></p> 
-                    <ul>
-                        <li>Development of interactive dashboards using Tableau.</li>
-                        <li>Data processing using R.</li>
-                    </ul>
+                <div class="card-grid">
+                    <div class="experience-card">
+                        <h3>Intern in Trading Analytics - Repsol</h3>
+                        <p class="date">Madrid, Spain | Aug 2024 - Present</p>
+                        <ul>
+                            <li>Developed Power BI dashboards for visualizing subscription expenses.</li>
+                            <li>Analyzed data in ISCC sustainability and petrochemical trading assets.</li>
+                            <li>Implemented Python scripts for automated data extraction.</li>
+                            <li>Maintained applications for representing quotation data.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Internship - National Institute of Statistics (INE)</h3>
+                        <p class="date">Madrid, Spain</p>
+                        <ul>
+                            <li>Development of interactive dashboards using Tableau.</li>
+                            <li>Data processing using R.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div class="content-section" id="projects-content">
+            <!-- Projects Card -->
+            <div class="content-card" id="projects-content">
                 <h2>Featured Projects</h2>
-                <div class="project-cards">
-                     <div class="card">
-                        <h3>Flight Delay Prediction (Bachelor's Thesis)</h3>
-                        <p>Utilized advanced statistical techniques to predict flight delays.</p>
-                        <p><em>Technologies: R, Stats Models</em></p>
+                <div class="card-grid">
+                    <div class="project-card">
+                        <div class="card-overlay"></div>
+                        <h3>Flight Delay Prediction</h3>
+                        <p>Bachelor's thesis using advanced statistical techniques to predict flight delays.</p>
+                        <p class="tech">R, Statistical Models</p>
                     </div>
-                     <div class="card">
-                        <h3>Trading Data Vis & Automation (Repsol)</h3>
-                        <p>Power BI dashboards and Python scripts for data analysis.</p>
-                        <p><em>Technologies: Power BI, Python, SQL</em></p>
+                    <div class="project-card">
+                        <div class="card-overlay"></div>
+                        <h3>Trading Data Visualization</h3>
+                        <p>Power BI dashboards and Python scripts for analyzing trading data.</p>
+                        <p class="tech">Power BI, Python, SQL</p>
                     </div>
-                    <div class="card">
-                        <h3>Interactive Dashboards (INE)</h3>
-                        <p>Visualizations using Tableau and data processing with R.</p>
-                        <p><em>Technologies: Tableau, R</em></p>
+                    <div class="project-card">
+                        <div class="card-overlay"></div>
+                        <h3>Interactive Dashboards</h3>
+                        <p>Data visualizations using Tableau and data processing with R.</p>
+                        <p class="tech">Tableau, R</p>
                     </div>
-                     <div class="card">
-                        <h3>End-to-End AWS Project (Master's)</h3>
-                        <p>Cloud project integrating scraping, DBs, modeling, and viz.</p>
-                        <p><em>Technologies: AWS, Python, DBs, Power BI</em></p>
+                    <div class="project-card">
+                        <div class="card-overlay"></div>
+                        <h3>End-to-End AWS Project</h3>
+                        <p>Cloud project integrating data scraping, DBs, modeling, and visualization.</p>
+                        <p class="tech">AWS, Python, NoSQL, Power BI</p>
                     </div>
                 </div>
             </div>
-            
-             <div class="content-section" id="education-content">
-                 <h2>Education</h2>
-                 <div class="education-item">
-                    <h3>Master's in Big Data Analytics</h3>
-                    <p><em>European University of Madrid | 2024 - Present</em></p> 
-                    <p>Focus: AWS, NoSQL, Analytics, Spark...</p>
-                 </div>
-                <div class="education-item">
-                    <h3>Bachelor's in Applied Statistics</h3>
-                     <p><em>Complutense University of Madrid | 2020 - 2024</em></p>
-                     <p>Thesis: Flight Delay Prediction.</p>
-                 </div>
+
+            <!-- Education Card -->
+            <div class="content-card" id="education-content">
+                <h2>Education</h2>
+                <div class="card-grid">
+                    <div class="education-card">
+                        <h3>Master's in Big Data Analytics</h3>
+                        <p class="institution">European University of Madrid</p>
+                        <p class="date">2024 - Present</p>
+                        <p>Focus: AWS, NoSQL, Business Analytics, Distributed Computing (PySpark, Spark, Hadoop)</p>
+                    </div>
+                    <div class="education-card">
+                        <h3>Bachelor's in Applied Statistics</h3>
+                        <p class="institution">Complutense University of Madrid</p>
+                        <p class="date">2020 - 2024</p>
+                        <p>Thesis: Prediction of Flight Delays using advanced statistical techniques.</p>
+                    </div>
+                </div>
             </div>
-            
-             <div class="content-section" id="skills-content">
+
+            <!-- Skills Card -->
+            <div class="content-card" id="skills-content">
                 <h2>Technical Skills</h2>
-                <div class="skills-list">
-                    <div>
-                        <h3>Languages</h3>
-                        <ul><li>Python</li><li>R</li><li>C++</li><li>Matlab</li><li>SAS</li><li>SQL</li></ul>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span>Python</span>
+                            <span>R</span>
+                            <span>C++</span>
+                            <span>Matlab</span>
+                            <span>SAS</span>
+                            <span>SQL</span>
+                        </div>
                     </div>
-                     <div>
-                        <h3>Cloud</h3>
-                        <ul><li>AWS</li></ul>
+                    <div class="skill-category">
+                        <h3>Cloud Computing</h3>
+                        <div class="skill-tags">
+                            <span>AWS</span>
+                        </div>
                     </div>
-                    <div>
+                    <div class="skill-category">
                         <h3>Databases</h3>
-                        <ul><li>SQL</li><li>PostgreSQL</li><li>MongoDB</li><li>Cassandra</li><li>Redis</li></ul>
+                        <div class="skill-tags">
+                            <span>SQL</span>
+                            <span>PostgreSQL</span>
+                            <span>MongoDB</span>
+                            <span>Cassandra</span>
+                            <span>Redis</span>
+                        </div>
                     </div>
-                    <div>
+                    <div class="skill-category">
                         <h3>Tools</h3>
-                        <ul><li>Git</li><li>Docker</li><li>Power BI</li><li>Tableau</li></ul>
+                        <div class="skill-tags">
+                            <span>Git</span>
+                            <span>Docker</span>
+                            <span>Power BI</span>
+                            <span>Tableau</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="content-section" id="contact-content">
+            <!-- Contact Card -->
+            <div class="content-card" id="contact-content">
                 <h2>Contact</h2>
-                <p>If you're interested in collaborating or learning more, feel free to reach out via the details on the sidebar or use the form below (requires backend/service like Formspree to function).</p>
-                
-                <!-- Basic Contact Form Example -->
-                <form id="contact-form" action="YOUR_FORMSPREE_ENDPOINT" method="POST"> 
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="subject">Subject:</label>
-                    <input type="text" id="subject" name="subject">
-                    
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                    
-                    <button type="submit">Send Message</button>
-                </form>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:angelmolpeceresmingo@gmail.com">angelmolpeceresmingo@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+34 609154460</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/AngelMolpeceresMingo" target="_blank">GitHub Profile</a>
+                    </div>
+                </div>
             </div>
-
-        </main>
+        </div>
     </div>
 
-    <!-- Your Custom Script -->
-    <script src="script.js"></script> 
-
+    <script src="script.js"></script>
 </body>
 </html>
