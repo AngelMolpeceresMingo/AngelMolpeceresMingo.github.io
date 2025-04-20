@@ -1,34 +1,55 @@
-// Wait for the HTML document to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', function() {
+    
+    const navButtons = document.querySelectorAll('.nav-button');
+    const contentSections = document.querySelectorAll('.content-section');
 
-    // Initialize AOS (Animate On Scroll) library
-    AOS.init({
-        duration: 800, // Duration of animation in milliseconds
-        offset: 100,   // Offset (in px) from the original trigger point
-        once: true,    // Whether animation should happen only once - while scrolling down
-        easing: 'ease-in-out', // Default easing for AOS animations
-    });
+    // Get the navigation container
+    const mainNav = document.getElementById('main-nav');
 
-    // Smooth Scrolling for internal links (starting with #)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            // Prevent the default instantaneous jump
-            e.preventDefault(); 
+    // Use event delegation on the navigation container
+    mainNav.addEventListener('click', function(event) {
+        // Check if the clicked element is actually a button
+        const clickedButton = event.target.closest('.nav-button');
+        
+        if (!clickedButton) {
+            return; // Exit if the click wasn't on a button
+        }
 
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+        // Get the target section ID from the button's data attribute
+        const targetId = clickedButton.getAttribute('data-target');
+        const targetSection = document.querySelector(targetId);
 
-            // Check if the target element exists
-            if (targetElement) {
-                // Scroll smoothly to the target element
-                targetElement.scrollIntoView({
-                    behavior: 'smooth' 
-                });
-            }
+        // If target section doesn't exist, do nothing
+        if (!targetSection) {
+            console.warn(`Target section ${targetId} not found.`);
+            return;
+        }
+
+        // Remove 'active' class from all buttons and sections
+        navButtons.forEach(button => {
+            button.classList.remove('active');
         });
+        contentSections.forEach(section => {
+            section.classList.remove('active');
+        });
+
+        // Add 'active' class to the clicked button and the target section
+        clickedButton.classList.add('active');
+        targetSection.classList.add('active');
     });
 
-    // Optional: Add any other simple, non-content-related interactions here
-    // e.g., maybe a subtle effect on the header on scroll, etc.
-
+    // Optional: Ensure the first button and section are active on load 
+    // (already handled by adding 'active' class in HTML, but good practice)
+    const initialActiveButton = document.querySelector('.nav-button.active');
+    const initialActiveSection = document.querySelector('.content-section.active');
+    if (!initialActiveButton || !initialActiveSection) {
+        // Fallback if HTML classes weren't set: activate the first ones
+        if (navButtons.length > 0 && contentSections.length > 0) {
+            navButtons[0].classList.add('active');
+            const firstTargetId = navButtons[0].getAttribute('data-target');
+            document.querySelector(firstTargetId)?.classList.add('active');
+        }
+    }
+    
 }); // End of DOMContentLoaded listener
+
