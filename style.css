@@ -1,14 +1,13 @@
-/* ==== GLOBAL STYLES ==== */
 :root {
-    --bg-dark: #12181b; 
-    --bg-card: #1f2933; 
-    --bg-main: #161d22; /* Slightly different background for main content */
-    --text-light: #e0e0e0; 
-    --text-secondary: #a0a0a0; 
-    --accent-color: #4a90e2; /* Blue example */
-    --accent-hover: #6aaeff; /* Lighter blue for hover */
-    --border-color: #323f4b; 
-    --sidebar-width: 300px; /* Define sidebar width */
+    --bg-color: #121212;
+    --card-bg: #1f2933;
+    --card-bg-hover: #2c3e50;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-color: #4a90e2;
+    --card-border: #323f4b;
+    --card-shadow: rgba(0, 0, 0, 0.4);
+    --hover-glow: rgba(74, 144, 226, 0.2);
 }
 
 * {
@@ -18,46 +17,43 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif; 
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
     line-height: 1.6;
-    font-size: 16px; 
-    display: flex; /* Use flexbox for the main layout */
-}
-
-.portfolio-container {
-    display: flex;
-    width: 100%;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 h1, h2, h3 {
-    color: var(--text-light);
-    margin-bottom: 0.8em;
+    color: var(--text-primary);
     line-height: 1.3;
 }
 
-h1 {
-    font-size: 1.8rem; /* Smaller H1 for sidebar */
-    margin-bottom: 0.3em;
-}
-
 h2 {
-    font-size: 2rem; 
-    border-bottom: 2px solid var(--accent-color); 
-    padding-bottom: 0.3em;
-    margin-bottom: 1.5em; 
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
 }
 
 h3 {
-    font-size: 1.4rem;
-    color: var(--accent-color); 
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
 }
 
-p {
-    margin-bottom: 1em;
-    color: var(--text-secondary); 
+ul {
+    list-style-position: inside;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
 }
 
 a {
@@ -67,146 +63,120 @@ a {
 }
 
 a:hover {
-    color: var(--accent-hover);
+    color: #fff;
 }
 
-ul {
-    list-style: none;
-}
-
-li {
-    margin-bottom: 0.5em;
-    color: var(--text-secondary);
-}
-
-/* ==== SIDEBAR (#sidebar) ==== */
-#sidebar {
-    width: var(--sidebar-width);
-    flex-shrink: 0; /* Prevent sidebar from shrinking */
-    background-color: var(--bg-card);
-    height: 100vh; /* Full height */
-    position: sticky; /* Make it stick */
-    top: 0;
-    padding: 40px 25px;
+/* Floating Container */
+.floating-container {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    border-right: 1px solid var(--border-color);
-    overflow-y: auto; /* Allow scrolling if content overflows */
-    text-align: center; /* Center text in sidebar */
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
-#sidebar .sidebar-content {
-    /* Can add styles here if needed */
+/* Profile Card */
+.profile-card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--card-shadow);
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--card-border);
 }
 
-#sidebar .profile-pic { 
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px var(--hover-glow);
+}
+
+.profile-pic {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 1em auto; /* Center image */
+    margin: 0 auto 15px;
     border: 3px solid var(--accent-color);
-    display: block;
 }
 
-#sidebar .subtitle {
-    font-size: 1rem;
+.subtitle {
     color: var(--text-secondary);
-    margin-bottom: 2em;
-}
-
-#sidebar .contact-info {
-    text-align: left; /* Align contact info left */
-    margin-bottom: 2em;
+    margin-bottom: 15px;
     font-size: 0.9rem;
 }
 
-#sidebar .contact-info p {
-    margin-bottom: 0.8em;
-    display: flex; /* Align icon and text */
-    align-items: center;
+.social-links {
+    margin-top: 15px;
 }
 
-#sidebar .contact-info i {
-    color: var(--accent-color);
-    margin-right: 10px;
-    width: 20px; /* Fixed width for alignment */
-    text-align: center;
-}
-#sidebar .contact-info a {
-    color: var(--text-secondary); /* Link color */
-}
-#sidebar .contact-info a:hover {
-    color: var(--accent-hover);
-}
-
-#sidebar .social-links {
-    margin-top: auto; /* Push social links to the bottom */
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
-}
-
-#sidebar .social-links a {
+.social-links a {
     color: var(--text-secondary);
     font-size: 1.5rem;
     margin: 0 10px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-#sidebar .social-links a:hover {
+.social-links a:hover {
     color: var(--accent-color);
+    transform: scale(1.2);
 }
 
-/* ==== MAIN CONTENT AREA (#main-content) ==== */
-#main-content {
-    flex-grow: 1; /* Allow main content to grow */
-    background-color: var(--bg-main);
-    padding: 40px;
-    height: 100vh; /* Full height */
-    overflow-y: auto; /* Allow THIS area to scroll */
-}
-
-/* ==== NAVIGATION MENU (#main-nav) ==== */
+/* Navigation */
 #main-nav {
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--border-color);
     display: flex;
-    gap: 10px; /* Space between buttons */
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
 }
 
 .nav-button {
-    background-color: var(--bg-card);
+    background-color: var(--card-bg);
     color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-    padding: 10px 20px;
-    border-radius: 20px; /* Rounded buttons */
+    border: 1px solid var(--card-border);
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .nav-button:hover {
-    background-color: #2c3a47; /* Slightly lighter card color */
-    color: var(--text-light);
+    background-color: var(--card-bg-hover);
+    color: var(--text-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .nav-button.active {
     background-color: var(--accent-color);
-    color: var(--bg-dark); /* Dark text on active button */
+    color: #fff;
     border-color: var(--accent-color);
 }
 
-/* ==== CONTENT SECTIONS (.content-section) ==== */
-.content-section {
-    display: none; /* Hide all sections by default */
-    animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+/* Content Area */
+.content-area {
+    width: 100%;
+    position: relative;
 }
 
-.content-section.active {
-    display: block; /* Show the active section */
+/* Content Cards */
+.content-card {
+    display: none;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--card-shadow);
+    border: 1px solid var(--card-border);
+    animation: fadeIn 0.5s ease-in-out;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 @keyframes fadeIn {
@@ -214,143 +184,169 @@ li {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Styles for content within sections (reuse from previous CSS if needed) */
-.about-extras, .project-cards, .skills-list {
+.content-card.active {
+    display: block;
+}
+
+/* About Section */
+.about-list {
+    margin-bottom: 2rem;
+}
+
+/* Grid Layout for Cards */
+.card-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Mini Cards */
+.mini-card, .experience-card, .education-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mini-card:hover, .experience-card:hover, .education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Project Cards with Hover Effect */
+.project-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(74, 144, 226, 0.15);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.project-card:hover .card-overlay {
+    opacity: 0.7;
+}
+
+.project-card h3, .project-card p {
+    position: relative;
+    z-index: 1;
+}
+
+.tech {
+    font-style: italic;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Date and Institution */
+.date, .institution {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.skill-category {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tags span {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.skill-tags span:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+.contact-info {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
-.project-cards { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-.skills-list { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.about-extras { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 
-
-.card, .job, .education-item, .skills-list div, .about-extras div {
-    background-color: var(--bg-card);
-    padding: 25px;
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
-    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
 }
 
-.skills-list ul li {
-    background-color: var(--bg-dark);
-    padding: 5px 10px;
-    margin-bottom: 8px;
-    border-radius: 4px;
-    display: inline-block; 
-    margin-right: 8px;
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
-.job p em, .education-item p em { 
-    color: var(--text-secondary);
-    font-style: normal; 
-    display: block; 
-    margin-bottom: 0.8em;
-}
-.job ul, .education-item ul {
-    margin-top: 1em;
-    padding-left: 20px;
-}
-.job ul li, .education-item ul li {
-    list-style: disc;
+.contact-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Contact Form Styles */
-#contact-form label {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--text-light);
-    font-weight: bold;
-}
-#contact-form input,
-#contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    color: var(--text-light);
-    font-size: 1rem;
-}
-#contact-form input:focus,
-#contact-form textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-}
-#contact-form button {
-    background-color: var(--accent-color);
-    color: var(--bg-dark);
-    border: none;
-    padding: 12px 25px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-#contact-form button:hover {
-    background-color: var(--accent-hover);
+.contact-item i {
+    color: var(--accent-color);
+    font-size: 1.5rem;
 }
 
-
-/* ==== RESPONSIVE DESIGN (Basic Example) ==== */
-@media (max-width: 900px) {
-    body, .portfolio-container {
-        flex-direction: column; /* Stack sidebar and main content */
-    }
-
-    #sidebar {
-        width: 100%; /* Full width */
-        height: auto; /* Auto height */
-        position: static; /* Remove sticky positioning */
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-        text-align: center; /* Center content again */
+/* Responsive Design */
+@media (max-width: 768px) {
+    .floating-container {
+        padding: 15px;
     }
     
-    #sidebar .contact-info {
-         text-align: center; /* Center contact info */
-         justify-content: center;
-    }
-     #sidebar .contact-info p {
-         justify-content: center; /* Center icon/text */
-    }
-
-
-    #sidebar .social-links {
-        margin-top: 1em; /* Adjust spacing */
-        padding-top: 1em;
+    .content-card {
+        padding: 20px;
     }
     
-     #main-content {
-        height: auto; /* Allow height to adjust */
-         padding: 25px; /* Reduce padding */
-     }
+    .card-grid, .skills-grid {
+        grid-template-columns: 1fr;
+    }
     
-    #main-nav {
-        justify-content: center; /* Center nav buttons */
+    .profile-card {
+        max-width: 100%;
     }
-}
-
-@media (max-width: 480px) {
-    h2 { font-size: 1.6rem; }
-    #main-nav { gap: 5px; } /* Reduce gap */
-    .nav-button { padding: 8px 15px; font-size: 0.9rem;} /* Smaller buttons */
-    #main-content { padding: 20px; }
-     /* Force single column for cards */
-    .project-cards, .skills-list, .about-extras { 
-        grid-template-columns: 1fr; 
-    }
-}
-
-#sidebar .profile-pic { 
-    width: 120px; /* Ancho */
-    height: 120px; /* Alto */
-    border-radius: 50%; /* Para hacerla circular */
-    object-fit: cover; /* Para que la imagen cubra bien el círculo */
-    margin: 0 auto 1em auto; /* Para centrarla y darle margen inferior */
-    border: 3px solid var(--accent-color); /* Borde opcional */
-    display: block; /* Necesario para centrar con margin auto */
 }
 
