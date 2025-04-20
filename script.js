@@ -1,39 +1,46 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all navigation buttons and content cards
+    // Obtiene todos los botones de navegación y todas las tarjetas de contenido
     const navButtons = document.querySelectorAll('.nav-button');
     const contentCards = document.querySelectorAll('.content-card');
     
-    // Add click event to navigation buttons
+    // Agrega evento click a los botones de navegación
     navButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Get target content ID from button's data attribute
+            // Obtiene el ID del contenido objetivo
             const targetId = this.getAttribute('data-target');
             const targetContent = document.querySelector(targetId);
             
-            // If target doesn't exist, do nothing
+            // Si el objetivo no existe, no hace nada
             if (!targetContent) return;
             
-            // Remove active class from all buttons and contents
+            // Quita la clase 'active' de todos los botones y contenidos
             navButtons.forEach(btn => btn.classList.remove('active'));
             contentCards.forEach(card => card.classList.remove('active'));
             
-            // Add active class to current button and target content
+            // Añade la clase 'active' al botón actual y al contenido objetivo
             this.classList.add('active');
             targetContent.classList.add('active');
+            
+            // Animación suave para la transición
+            targetContent.style.opacity = 0;
+            setTimeout(() => {
+                targetContent.style.opacity = 1;
+            }, 50);
         });
     });
     
-    // Optional: Add hover effect for cards with mouse position tracking
+    // Opcional: Efectos de hover avanzados para las tarjetas de proyectos
     const projectCards = document.querySelectorAll('.project-card');
     
     projectCards.forEach(card => {
-        card.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left; 
-            const y = e.clientY - rect.top;
-            
-            this.style.setProperty('--x-pos', `${x}px`);
-            this.style.setProperty('--y-pos', `${y}px`);
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+            this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.3)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+            this.style.boxShadow = '';
         });
     });
 });
