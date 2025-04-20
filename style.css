@@ -8,6 +8,7 @@
     --card-border: #323f4b;
     --card-shadow: rgba(0, 0, 0, 0.4);
     --hover-glow: rgba(74, 144, 226, 0.2);
+    --sidebar-width: 280px; /* Ancho del sidebar */
 }
 
 * {
@@ -22,15 +23,24 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
 }
 
+/* Contenedor principal */
+.portfolio-container {
+    display: flex; /* Usa flexbox para organizar sidebar y contenido */
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Estilos de texto y enlaces */
 h1, h2, h3 {
     color: var(--text-primary);
     line-height: 1.3;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.3em;
 }
 
 h2 {
@@ -66,33 +76,26 @@ a:hover {
     color: #fff;
 }
 
-/* Floating Container */
-.floating-container {
-    width: 100%;
-    max-width: 1200px;
-    position: relative;
+/* ===== SIDEBAR (FIXED A LA IZQUIERDA) ===== */
+#sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--card-bg);
+    height: 100vh;
+    position: fixed; /* Fija el sidebar */
+    top: 0;
+    left: 0;
+    padding: 30px 20px;
+    overflow-y: auto; /* Permite scroll si el contenido es largo */
+    border-right: 1px solid var(--card-border);
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2); /* Sombra sutil a la derecha */
+}
+
+.sidebar-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-}
-
-/* Profile Card */
-.profile-card {
-    background-color: var(--card-bg);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px var(--card-shadow);
-    width: 100%;
-    max-width: 300px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--card-border);
-}
-
-.profile-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px var(--hover-glow);
 }
 
 .profile-pic {
@@ -100,24 +103,43 @@ a:hover {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 15px;
     border: 3px solid var(--accent-color);
+    margin-bottom: 20px;
 }
 
 .subtitle {
     color: var(--text-secondary);
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     font-size: 0.9rem;
 }
 
+.contact-info {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    color: var(--accent-color);
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
 .social-links {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .social-links a {
     color: var(--text-secondary);
     font-size: 1.5rem;
-    margin: 0 10px;
+    margin: 0 8px;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -126,13 +148,20 @@ a:hover {
     transform: scale(1.2);
 }
 
-/* Navigation */
+/* ===== CONTENIDO PRINCIPAL (A LA DERECHA) ===== */
+#main-content {
+    flex: 1;
+    padding: 30px;
+    margin-left: var(--sidebar-width); /* Espacio para el sidebar */
+    min-height: 100vh;
+}
+
+/* Navegación */
 #main-nav {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 10px;
-    margin: 10px 0;
+    margin-bottom: 30px;
 }
 
 .nav-button {
@@ -160,23 +189,25 @@ a:hover {
     border-color: var(--accent-color);
 }
 
-/* Content Area */
+/* Área de contenido */
 .content-area {
     width: 100%;
     position: relative;
 }
 
-/* Content Cards */
+/* Tarjetas de contenido */
 .content-card {
     display: none;
     background-color: var(--card-bg);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px var(--card-shadow);
+    box-shadow: 0 8px 25px var(--card-shadow);
     border: 1px solid var(--card-border);
     animation: fadeIn 0.5s ease-in-out;
-    max-width: 800px;
-    margin: 0 auto;
+}
+
+.content-card.active {
+    display: block;
 }
 
 @keyframes fadeIn {
@@ -184,16 +215,12 @@ a:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.content-card.active {
-    display: block;
-}
-
-/* About Section */
+/* Lista About */
 .about-list {
     margin-bottom: 2rem;
 }
 
-/* Grid Layout for Cards */
+/* Grid Layout para Tarjetas */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -202,52 +229,21 @@ a:hover {
 }
 
 /* Mini Cards */
-.mini-card, .experience-card, .education-card {
+.mini-card, .experience-card, .education-card, .project-card {
     background-color: rgba(255, 255, 255, 0.05);
     padding: 20px;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.mini-card:hover, .experience-card:hover, .education-card:hover {
+.mini-card:hover, .experience-card:hover, .education-card:hover, .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Project Cards with Hover Effect */
-.project-card {
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(74, 144, 226, 0.15);
-}
-
-.card-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, var(--card-bg), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 0;
-}
-
-.project-card:hover .card-overlay {
-    opacity: 0.7;
-}
-
-.project-card h3, .project-card p {
-    position: relative;
-    z-index: 1;
+/* Project Cards */
+.project-card h3 {
+    margin-bottom: 10px;
 }
 
 .tech {
@@ -332,21 +328,37 @@ a:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .floating-container {
-        padding: 15px;
+@media (max-width: 900px) {
+    .portfolio-container {
+        flex-direction: column;
     }
     
-    .content-card {
+    #sidebar {
+        position: relative; /* Elimina la posición fija */
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    #main-content {
+        margin-left: 0;
         padding: 20px;
     }
     
-    .card-grid, .skills-grid {
-        grid-template-columns: 1fr;
+    .nav-button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
     }
     
-    .profile-card {
-        max-width: 100%;
+    .card-grid, .skills-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
     }
+}
+
+@media (max-width: 480px) {
+    h2 { font-size: 1.5rem; }
+    #main-nav { justify-content: center; gap: 5px; }
+    .content-card { padding: 15px; }
 }
 
