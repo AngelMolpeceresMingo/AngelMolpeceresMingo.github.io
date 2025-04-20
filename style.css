@@ -343,3 +343,38 @@ footer p {
     }
 }
 
+/* Smooth transition for links */
+a {
+    transition: color 0.3s ease, transform 0.2s ease; /* Added transform */
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: none; /* Remove underline for cleaner hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Hover effect for cards (Projects, Services, Skills) */
+.card {
+    /* Add existing styles: background, padding, border-radius, border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px); /* Make cards lift more */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Hover effect for skill tags */
+.skills-list ul li {
+    /* Add existing styles */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.skills-list ul li:hover {
+    background-color: var(--accent-color); /* Change background on hover */
+    color: var(--bg-dark); /* Adjust text color for contrast */
+    transform: scale(1.05); /* Slightly enlarge */
+}
+
+
