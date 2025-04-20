@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- Changed language to English -->
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angel Molpeceres Mingo - Portfolio</title>
-    <!-- Link your CSS file here -->
+    
+    <!-- Link your main CSS file -->
     <link rel="stylesheet" href="style.css"> 
+    
+    <!-- Link AOS CSS for animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Optional: Add icon library (e.g., Font Awesome) if desired -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
 </head>
@@ -15,19 +20,16 @@
     <header id="hero">
         <div class="container">
             <!-- Optional: Add your photo here -->
-            <!-- <img src="assets/profile-pic.jpg" alt="Angel Molpeceres Mingo" class="profile-pic"> -->
+            <!-- <img src="assets/profile-pic.jpg" alt="Angel Molpeceres Mingo" class="profile-pic" data-aos="zoom-in"> -->
             
-            <h1>Angel Molpeceres Mingo</h1>
-            <!-- Title derived from CV content -->
-            <p class="subtitle">Data Scientist | Big Data Analyst | Applied Statistics Graduate [1]</p> 
+            <h1 data-aos="fade-down">Angel Molpeceres Mingo</h1>
+            <p class="subtitle" data-aos="fade-down" data-aos-delay="100">Data Scientist | Big Data Analyst | Applied Statistics Graduate</p> 
             
-            <!-- Brief description inspired by reference and CV -->
-            <p class="hero-bio">
-                Graduate in Applied Statistics with a strong foundation in Data Science and Programming, currently pursuing a Master's in Big Data Analytics. Eager to apply my skills in challenging data environments and contribute to innovative technology development [1].
+            <p class="hero-bio" data-aos="fade-up" data-aos-delay="200">
+                Graduate in Applied Statistics with a strong foundation in Data Science and Programming, currently pursuing a Master's in Big Data Analytics. Eager to apply my skills in challenging data environments and contribute to innovative technology development.
             </p>
             
-            <!-- Navigation links -->
-            <nav>
+            <nav data-aos="fade-up" data-aos-delay="300">
                 <a href="#about">About Me</a>
                 <a href="#services">What I Do</a>
                 <a href="#experience">Experience</a>
@@ -40,104 +42,100 @@
     </header>
 
     <!-- ==== ABOUT ME SECTION ==== -->
-    <section id="about" class="container">
+    <section id="about" class="container" data-aos="fade-up">
         <h2>About Me</h2>
         <p>
-            Graduate in Applied Statistics with a strong foundation in Data Science and Programming. Currently pursuing a Master's in Big Data Analytics. Eager to develop my career in the Data and AI field, specifically in data science and analytics. Seeking opportunities to apply my skills in challenging data environments, learning from the best and contributing to innovative technology development. Strong teamwork and leadership skills. Great willingness to receive feedback and a perfectionist spirit. Ability to adapt and thrive in new environments [1].
+            Graduate in Applied Statistics with a strong foundation in Data Science and Programming. Currently pursuing a Master's in Big Data Analytics. Eager to develop my career in the Data and AI field, specifically in data science and analytics. Seeking opportunities to apply my skills in challenging data environments, learning from the best and contributing to innovative technology development. Strong teamwork and leadership skills. Great willingness to receive feedback and a perfectionist spirit. Ability to adapt and thrive in new environments.
         </p>
         <div class="about-extras">
-            <div>
+            <div data-aos="fade-right" data-aos-delay="100">
                 <h3>Languages</h3>
                 <ul>
-                    <li>Spanish (Native) [1]</li>
-                    <li>English (C1 Cambridge) [1]</li>
-                    <li>French (B2 Delf) [1]</li>
+                    <li>Spanish (Native)</li>
+                    <li>English (C1 Cambridge)</li>
+                    <li>French (B2 Delf)</li>
                 </ul>
             </div>
-            <div>
+            <div data-aos="fade-left" data-aos-delay="100">
                 <h3>Achievements</h3>
                 <ul>
-                    <li>ASEPELT/EUROVAL 2024 International Award for the Use of Advanced Quantitative Techniques in Data Analysis in Applied Economics [1].</li>
+                    <li>ASEPELT/EUROVAL 2024 International Award for the Use of Advanced Quantitative Techniques in Data Analysis in Applied Economics.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- ==== SERVICES SECTION (Adapted from "What I'm Doing") ==== -->
-    <section id="services" class="container">
+    <!-- ==== SERVICES SECTION ==== -->
+    <section id="services" class="container" data-aos="fade-up">
         <h2>What I Do</h2>
         <div class="service-cards">
-            <div class="card">
-                <!-- <i class="fas fa-chart-line"></i> Optional Icon -->
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
                 <h3>Data Analysis & Visualization</h3>
-                <p>Developing interactive dashboards (Power BI, Tableau) and performing data analysis using Python and R [1].</p>
+                <p>Developing interactive dashboards (Power BI, Tableau) and performing data analysis using Python and R.</p>
             </div>
-            <div class="card">
-                <!-- <i class="fas fa-database"></i> Optional Icon -->
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
                 <h3>Big Data Technologies</h3>
-                <p>Practical knowledge in Cloud Computing (AWS), NoSQL databases (MongoDB, Cassandra, Redis), and distributed computing (PySpark, Spark, Hadoop) [1].</p>
+                <p>Practical knowledge in Cloud Computing (AWS), NoSQL databases (MongoDB, Cassandra, Redis), and distributed computing (PySpark, Spark, Hadoop).</p>
             </div>
-            <div class="card">
-                <!-- <i class="fas fa-brain"></i> Optional Icon -->
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
                 <h3>Machine Learning & Statistics</h3>
-                <p>Applying advanced statistical techniques and predictive models using Python (Keras, Tensorflow, Pytorch) and R [1].</p>
+                <p>Applying advanced statistical techniques and predictive models using Python (Keras, Tensorflow, Pytorch) and R.</p>
             </div>
-             <div class="card">
-                <!-- <i class="fas fa-cloud"></i> Optional Icon -->
+             <div class="card" data-aos="fade-up" data-aos-delay="400">
                 <h3>Cloud Computing (AWS)</h3>
-                <p>Hands-on experience developing end-to-end projects on AWS, integrating databases, modeling, and visualization [1].</p>
+                <p>Hands-on experience developing end-to-end projects on AWS, integrating databases, modeling, and visualization.</p>
             </div>
         </div>
     </section>
     
     <!-- ==== EXPERIENCE SECTION ==== -->
-    <section id="experience" class="container">
+    <section id="experience" class="container" data-aos="fade-up">
         <h2>Professional Experience</h2>
-        <div class="job">
+        <div class="job" data-aos="fade-up">
             <h3>Intern in Trading Analytics - Repsol</h3>
-            <p><em>Madrid, Spain | Aug 2024 - Present</em> [1]</p> 
+            <p><em>Madrid, Spain | Aug 2024 - Present</em></p> 
             <ul>
-                <li>Developed Power BI dashboards for visualizing subscription expenses related to trading information agencies [1].</li>
-                <li>Analyzed data in ISCC sustainability and petrochemical trading assets [1].</li>
-                <li>Implemented Python scripts for automated daily quotation data extraction [1].</li>
-                <li>Maintained applications for representing quotation data [1].</li>
+                <li>Developed Power BI dashboards for visualizing subscription expenses related to trading information agencies.</li>
+                <li>Analyzed data in ISCC sustainability and petrochemical trading assets.</li>
+                <li>Implemented Python scripts for automated daily quotation data extraction.</li>
+                <li>Maintained applications for representing quotation data.</li>
             </ul>
         </div>
-        <div class="job">
+        <div class="job" data-aos="fade-up" data-aos-delay="100">
             <h3>Internship - National Institute of Statistics (INE)</h3>
-             <p><em>Madrid, Spain</em> [1]</p> 
+             <p><em>Madrid, Spain</em></p> 
             <ul>
-                <li>Development of interactive dashboards using Tableau [1].</li>
-                <li>Data processing using R [1].</li>
+                <li>Development of interactive dashboards using Tableau.</li>
+                <li>Data processing using R.</li>
             </ul>
         </div>
     </section>
 
-    <!-- ==== PROJECTS SECTION (Examples based on experience/studies) ==== -->
-    <section id="projects" class="container">
+    <!-- ==== PROJECTS SECTION ==== -->
+    <section id="projects" class="container" data-aos="fade-up">
         <h2>Featured Projects</h2>
         <div class="project-cards">
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
                 <h3>Flight Delay Prediction (Bachelor's Thesis)</h3>
-                <p>Bachelor's thesis utilizing advanced statistical techniques to predict flight delays [1].</p>
+                <p>Bachelor's thesis utilizing advanced statistical techniques to predict flight delays.</p>
                 <p><em>Technologies: R, Advanced Statistical Techniques</em></p>
-                 <!-- <a href="#">View More (if you have a link)</a> -->
+                 <!-- <a href="#">View More</a> -->
             </div>
-             <div class="card">
+             <div class="card" data-aos="fade-up" data-aos-delay="200">
                 <h3>Trading Data Visualization & Automation (Repsol)</h3>
-                <p>Created Power BI dashboards and Python scripts for extracting and analyzing quotation and sustainability data [1].</p>
+                <p>Created Power BI dashboards and Python scripts for extracting and analyzing quotation and sustainability data.</p>
                 <p><em>Technologies: Power BI, Python, SQL (implied)</em></p>
                  <!-- <a href="#">View More</a> -->
             </div>
-            <div class="card">
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
                 <h3>Interactive Dashboards (INE)</h3>
-                <p>Developed interactive data visualizations using Tableau and processed data with R [1].</p>
+                <p>Developed interactive data visualizations using Tableau and processed data with R.</p>
                 <p><em>Technologies: Tableau, R</em></p>
                  <!-- <a href="#">View More</a> -->
             </div>
-             <div class="card">
+             <div class="card" data-aos="fade-up" data-aos-delay="400">
                 <h3>End-to-End AWS Project (Master's)</h3>
-                <p>Complete project integrating data scraping, database storage (SQL/NoSQL), predictive modeling, and visualization on the AWS cloud [1].</p>
+                <p>Complete project integrating data scraping, database storage (SQL/NoSQL), predictive modeling, and visualization on the AWS cloud.</p>
                 <p><em>Technologies: AWS, Python, Databases (Various), Power BI (potentially)</em></p>
                  <!-- <a href="#">View More</a> -->
             </div>
@@ -145,73 +143,60 @@
     </section>
 
     <!-- ==== EDUCATION SECTION ==== -->
-    <section id="education" class="container">
+    <section id="education" class="container" data-aos="fade-up">
         <h2>Education</h2>
-        <div class="education-item">
+        <div class="education-item" data-aos="fade-up">
             <h3>Master's in Big Data Analytics - European University of Madrid</h3>
-            <p><em>Madrid, Spain | 2024 - Present</em> [1]</p> 
-            <p>Focusing on: Cloud Computing (AWS), Advanced Databases (MongoDB, Redis, Cassandra), Business Analytics, Distributed Computing (Pyspark, Spark, Hadoop) [1].</p>
+            <p><em>Madrid, Spain | 2024 - Present</em></p> 
+            <p>Focusing on: Cloud Computing (AWS), Advanced Databases (MongoDB, Redis, Cassandra), Business Analytics, Distributed Computing (Pyspark, Spark, Hadoop).</p>
         </div>
-        <div class="education-item">
+        <div class="education-item" data-aos="fade-up" data-aos-delay="100">
             <h3>Bachelor's in Applied Statistics - Complutense University of Madrid</h3>
-             <p><em>Madrid, Spain | 2020 - 2024</em> [1]</p>
-             <p>Thesis: Prediction of Flight Delays using advanced statistical techniques [1].</p>
+             <p><em>Madrid, Spain | 2020 - 2024</em></p>
+             <p>Thesis: Prediction of Flight Delays using advanced statistical techniques.</p>
         </div>
     </section>
 
     <!-- ==== SKILLS SECTION ==== -->
-    <section id="skills" class="container">
+    <section id="skills" class="container" data-aos="fade-up">
         <h2>Technical Skills</h2>
         <div class="skills-list">
-            <div>
+            <div data-aos="fade-up" data-aos-delay="100">
                 <h3>Programming Languages</h3>
                 <ul>
-                    <li>Python (Keras, Tensorflow, Pytorch) [1]</li>
-                    <li>R [1]</li>
-                    <li>C++ [1]</li>
-                    <li>Matlab [1]</li>
-                    <li>SAS [1]</li>
-                     <li>SQL [1]</li>
+                    <li>Python (Keras, Tensorflow, Pytorch)</li><li>R</li><li>C++</li><li>Matlab</li><li>SAS</li><li>SQL</li>
                 </ul>
             </div>
-             <div>
+             <div data-aos="fade-up" data-aos-delay="200">
                 <h3>Cloud Computing</h3>
                 <ul>
-                   <li>AWS (Practical experience in end-to-end project development) [1]</li>
+                   <li>AWS (Practical experience in end-to-end project development)</li>
                 </ul>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-delay="300">
                 <h3>Databases</h3>
                 <ul>
-                    <li>SQL [1]</li>
-                     <li>PostgreSQL [1]</li>
-                    <li>MongoDB [1]</li>
-                    <li>Cassandra [1]</li>
-                    <li>Redis [1]</li>
+                    <li>SQL</li><li>PostgreSQL</li><li>MongoDB</li><li>Cassandra</li><li>Redis</li>
                 </ul>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-delay="400">
                 <h3>Tools</h3>
                 <ul>
-                    <li>Git [1]</li>
-                    <li>Docker [1]</li>
-                    <li>Power BI [1]</li>
-                    <li>Tableau [1]</li>
+                    <li>Git</li><li>Docker</li><li>Power BI</li><li>Tableau</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- ==== CONTACT SECTION ==== -->
-    <section id="contact" class="container">
+    <section id="contact" class="container" data-aos="fade-up">
         <h2>Contact</h2>
         <p>If you're interested in collaborating or learning more about my work, feel free to reach out.</p>
         <ul>
-            <li><strong>Email:</strong> <a href="mailto:angelmolpeceresmingo@gmail.com">angelmolpeceresmingo@gmail.com</a> [1]</li>
-            <li><strong>Phone:</strong> +34 609154460 [1]</li>
-            <!-- Add your LinkedIn if you have one -->
+            <li data-aos="fade-up" data-aos-delay="100"><strong>Email:</strong> <a href="mailto:angelmolpeceresmingo@gmail.com">angelmolpeceresmingo@gmail.com</a></li>
+            <li data-aos="fade-up" data-aos-delay="200"><strong>Phone:</strong> +34 609154460</li>
             <!-- <li><strong>LinkedIn:</strong> <a href="[YOUR_LINKEDIN_URL]" target="_blank">Your LinkedIn Profile</a></li> -->
-            <li><strong>GitHub:</strong> <a href="https://github.com/AngelMolpeceresMingo" target="_blank">AngelMolpeceresMingo</a></li>
+            <li data-aos="fade-up" data-aos-delay="300"><strong>GitHub:</strong> <a href="https://github.com/AngelMolpeceresMingo" target="_blank">AngelMolpeceresMingo</a></li>
         </ul>
     </section>
 
@@ -219,9 +204,15 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 Angel Molpeceres Mingo. All rights reserved.</p> 
-            <!-- You can add social media links here too -->
         </div>
     </footer>
 
+    <!-- JavaScript Libraries -->
+    <!-- AOS JS (for animations) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Your Custom Script -->
+    <script src="script.js"></script> 
+
 </body>
 </html>
+
