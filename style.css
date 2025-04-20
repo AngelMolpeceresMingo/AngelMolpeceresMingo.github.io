@@ -343,3 +343,14 @@ li {
         grid-template-columns: 1fr; 
     }
 }
+
+#sidebar .profile-pic { 
+    width: 120px; /* Ancho */
+    height: 120px; /* Alto */
+    border-radius: 50%; /* Para hacerla circular */
+    object-fit: cover; /* Para que la imagen cubra bien el círculo */
+    margin: 0 auto 1em auto; /* Para centrarla y darle margen inferior */
+    border: 3px solid var(--accent-color); /* Borde opcional */
+    display: block; /* Necesario para centrar con margin auto */
+}
+
